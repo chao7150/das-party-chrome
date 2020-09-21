@@ -1,0 +1,14 @@
+{
+  "name": "das-party",
+  "version": "1.0",
+  "description": "control dAS",
+  "permissions": ["<all_urls>"],
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["https://anime.dmkt-sp.jp/*"],
+      "js": ["content_scripts.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
