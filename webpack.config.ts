@@ -6,6 +6,8 @@ const config: ConfigurationFactory = () => {
   return {
     entry: {
       content_scripts: path.join(__dirname, "src", "content_scripts.ts"),
+      background: path.join(__dirname, "src", "background.ts"),
+      popup: path.join(__dirname, "src", "popup.ts"),
     },
     output: {
       // buildディレクトリにcontent_scripts.jsを吐く

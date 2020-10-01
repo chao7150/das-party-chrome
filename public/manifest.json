@@ -2,13 +2,26 @@
   "name": "das-party",
   "version": "1.0",
   "description": "control dAS",
-  "permissions": ["<all_urls>"],
+  "permissions": ["declarativeContent", "<all_urls>"],
   "manifest_version": 2,
   "content_scripts": [
     {
-      "matches": ["https://anime.dmkt-sp.jp/*"],
+      "matches": ["https://anime.dmkt-sp.jp/animestore/sc_d_pc*"],
       "js": ["content_scripts.js"],
       "run_at": "document_start"
     }
-  ]
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "images/das_party128.png"
+    }
+  },
+  "icons": {
+    "128": "images/das_party128.png"
+  }
 }

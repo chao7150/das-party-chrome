@@ -20,7 +20,6 @@ const run = async () => {
 
   // receiver
   socket.addEventListener("message", (message) => {
-    console.log(message.data);
     const event: ControlMessage = JSON.parse(message.data);
     switch (event.type) {
       case "play":
