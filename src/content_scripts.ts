@@ -2,6 +2,12 @@ import { ControlMessage } from "./consts";
 import { getVideoElement } from "./play";
 
 const run = async () => {
+  // roomidが指定されていないときはなにもしない
+  const url = new URL(location.href);
+  if (!url.searchParams.has("roomid")) {
+    return undefined;
+  }
+
   // initialize
   const socket = new WebSocket("ws://localhost:8080");
   socket.addEventListener("open", (event) => socket.send(location.href));
