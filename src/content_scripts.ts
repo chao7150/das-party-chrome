@@ -9,8 +9,10 @@ const run = async () => {
   }
 
   // initialize
-  const socket = new WebSocket("ws://localhost:8080");
-  socket.addEventListener("open", (event) => socket.send(location.href));
+  const socket = new WebSocket(
+    `ws://localhost:8080?roomid=${url.searchParams.get("roomid")}`,
+  );
+
   const videoElement = await getVideoElement();
   console.log("video element loaded");
 
