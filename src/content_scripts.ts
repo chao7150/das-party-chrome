@@ -10,7 +10,7 @@ const run = async () => {
 
   // initialize
   const socket = new WebSocket(
-    `ws://localhost:8080?roomid=${url.searchParams.get("roomid")}`,
+    `wss://matcha.chao.tokyo?roomid=${url.searchParams.get("roomid")}`,
   );
 
   const videoElement = await getVideoElement();
