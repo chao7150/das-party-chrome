@@ -16,8 +16,9 @@ createRoomButton.onclick = (ev: MouseEvent) => {
     if (url.searchParams.has("roomid")) {
       return undefined;
     }
+    const roomid = Math.floor(Math.random() * 10000);
     chrome.tabs.executeScript(tab.id!, {
-      code: 'location.href = location.href + "&roomid=hoge";',
+      code: `location.href = location.href + "&roomid=${roomid}";`,
     });
   });
 };
