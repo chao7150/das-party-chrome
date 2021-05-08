@@ -15,6 +15,8 @@ const run = async () => {
 
   const videoElement = await getVideoElement();
   console.log("video element loaded");
+  // 60秒間通信がないとnginxがコネクションを切る
+  setInterval(() => socket.send("ping"), 50 * 1000);
 
   // sender
   videoElement.onplay = (event) =>
@@ -28,6 +30,9 @@ const run = async () => {
 
   // receiver
   socket.addEventListener("message", (message) => {
+    if (message.data === "pong") {
+      return;
+    }
     const event: ControlMessage = JSON.parse(message.data);
     switch (event.type) {
       case "play":
